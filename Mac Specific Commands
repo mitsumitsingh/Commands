@@ -1,0 +1,5 @@
+Set global environment variable
+
+Example : To set java path :
+export JAVA_HOME=/usr/local/opt/openjdk@21
+source ~/.zshrc
