@@ -1,0 +1,14 @@
+whoami                  -> To know the user
+pwd                     -> To know the current directory
+ls                      -> list all the directories.
+echo $(hostname)        -> Print hostname
+echo $(hostname -i)     -> Print ip address
+
+/* Startup Script */
+#!/bin/bash
+sudo su
+apt update 
+apt -y install apache2
+echo "Hello World!" > /var/www/html/index.html
+sudo service apache2 start
+
