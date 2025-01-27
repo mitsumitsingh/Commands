@@ -6,16 +6,51 @@ gcloud --version
 #initialize or reinitialize gcloud
 gcloud init
 
-#lists all properties of the active configuration
+#lists all properties of the **active** configuration
 gcloud config list
 
+#List all project config
 gcloud config list project
+
+#List all configurations config
 gcloud config configurations list
+
+# Create and activate configuration
+gcloud config configurations create my-second-configuration
+
+#Attach configuration to project
+gcloud config set project project_id
+
+#Remove configuration from project
+gcloud config unset project project_id
+
+#Activate configurations
 gcloud config configurations activate my-default-configuration
-gcloud config list
+
+#Describe configurations
 gcloud config configurations describe my-second-configuration
+
+
 gcloud compute instances list
+
+#compute instance creation command
 gcloud compute instances create
+
+# If you want to add machine type while instance creation
+gcloud compute instances create --machine-type n1-standard-2
+
+# Some other options which we can use while instance creation 
+--custom-cpu --custome-memory --custom-vm-type
+  EG - --custom-cpu 6 --custom-memory 2048MB --custom-vm-type n2
+--image or --image-family or --source-snapshot or --source-instance-template or --source-machine-image
+--service-account or --no-service-account
+--zone=us-central1-b
+--tags(List of tags - Allow network firewall rules and routes to be applied to VM instances
+--preemptible
+--restart-on-failure(default) --no-restart-on-failure --maintenance-policy(MIGRATE(default)/TERMINATE)
+--boot-disk-size, --boot-disk-type, (--boot-disk-auto-delete(default)/--no-boot-disk-auto-delete)
+--deletion-protection / --no-deletion-protection(default)
+
 gcloud compute instances create my-first-instance-from-gcloud
 gcloud compute instances describe my-first-instance-from-gcloud
 gcloud compute instances delete my-first-instance-from-gcloud
@@ -30,6 +65,9 @@ gcloud compute zones list --sort-by=region
 gcloud compute zones list --sort-by=~region
 gcloud compute zones list --uri
 gcloud compute regions describe us-west4
+
+For more info visit - https://cloud.google.com/sdk/gcloud/reference/compute/instances/create
+
  
 gcloud compute instance-templates list
 gcloud compute instance-templates create instance-template-from-command-line
